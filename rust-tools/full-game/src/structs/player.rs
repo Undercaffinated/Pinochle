@@ -1,8 +1,8 @@
-use stdio::io;
+use crate::structs::hand::Hand;
 
-struct Player {
+pub struct Player {
     // Human or Computer Player
-    player_type: Player_Type,
+    player_type: PlayerType,
 
     // Player Name
     name: String,
@@ -18,7 +18,7 @@ struct Player {
 }
 
 impl Player {
-    fn new(players_made: u8) -> Player {
+    pub fn new(players_made: u8) -> Player {
         Player {
             player_type = Player::get_player_type(players_made),
             name = get_player_name(),
@@ -45,9 +45,13 @@ impl Player {
         }
         pt
     }
+
+    fn print() {
+        println!("{}", name);
+    }
 }
 
-enum Player_Type {
+enum PlayerType {
     Human,
     Computer,
     Undeclared,

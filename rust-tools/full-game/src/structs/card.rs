@@ -1,4 +1,4 @@
-struct Card {
+pub struct Card {
     value: Value,
     suit: Suit,
 }

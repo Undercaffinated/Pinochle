@@ -1,10 +1,11 @@
-mod enums;
 mod structs;
+mod enums;
 mod generic_functions;
 
 
 fn main() {
     // Initialize Game
+    let game = structs::game::Game::new();
     
     // Main Game Loop
     loop {

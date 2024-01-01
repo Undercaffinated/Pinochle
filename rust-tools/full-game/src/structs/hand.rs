@@ -1,4 +1,6 @@
-struct Hand {
+use crate::structs::card::Card;
+
+pub struct Hand {
     // An array of 12 Cards
     hand: [Card; 12],
 }
