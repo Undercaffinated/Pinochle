@@ -20,16 +20,16 @@ struct Player {
 impl Player {
     fn new(players_made: u8) -> Player {
         Player {
-            player_type = Player::get_player_type(players_made);
-            name = get_player_name();
-            hand = make_empty_hand();
+            player_type = Player::get_player_type(players_made),
+            name = get_player_name(),
+            hand = make_empty_hand(),
             bid = Undeclared,
-            meld = 0;
+            meld = 0,
         }
     }
 
     fn get_player_type(players_made: u8) {
-        let pt = player_type::Undeclared;
+        let mut pt = player_type::Undeclared;
         let mut input = String::new();
         while pt == player_type::Undeclared {
             println!("Is Player {} a Human (H) or Computer? (C)", players_made + 1);
@@ -37,13 +37,13 @@ impl Player {
                 .read_line(&mut input)
                 .expect("Failed to read line!");
 
-            let pt = match input.trim() {
+            pt = match input.trim() {
                 'H' => Human,
                 'C' => Computer,
                 _ => Undeclared,
             }
         }
-
+        pt
     }
 }
 
