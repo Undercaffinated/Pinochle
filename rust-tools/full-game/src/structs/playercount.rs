@@ -1,4 +1,4 @@
-enum PlayerCount {
+pub enum PlayerCount {
     Zero,
     One,
     Two,

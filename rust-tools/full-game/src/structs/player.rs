@@ -1,4 +1,6 @@
 use crate::structs::hand::Hand;
+use crate::structs::bids::Bid;
+use std::io;
 
 pub struct Player {
     // Human or Computer Player
@@ -20,15 +22,15 @@ pub struct Player {
 impl Player {
     pub fn new(players_made: u8) -> Player {
         Player {
-            player_type = Player::get_player_type(players_made),
-            name = get_player_name(),
-            hand = make_empty_hand(),
-            bid = Undeclared,
-            meld = 0,
+            player_type: Self::get_player_type(players_made),
+            name: Self::get_player_name(),
+            hand: make_empty_hand(),
+            bid: Undeclared,
+            meld: 0,
         }
     }
 
-    fn get_player_type(players_made: u8) {
+    fn get_player_type(players_made: u8) -> PlayerType{
         let mut pt = player_type::Undeclared;
         let mut input = String::new();
         while pt == player_type::Undeclared {
@@ -46,9 +48,14 @@ impl Player {
         pt
     }
 
-    fn print() {
-        println!("{}", name);
+    fn get_player_name() -> String {
+        let mut input = String::new();
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line!");
+        input
     }
+
 }
 
 enum PlayerType {

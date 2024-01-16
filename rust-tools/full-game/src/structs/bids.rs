@@ -1,4 +1,4 @@
-enum Bid {
+pub enum Bid {
     Open,
     OpenOnce,
     Pass,
